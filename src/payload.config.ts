@@ -25,7 +25,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 		meta: {
-			titleSuffix: " | Payload",
+			titleSuffix: " | Superior Software Solutions",
 		},
 		user: Users.slug,
 	},
