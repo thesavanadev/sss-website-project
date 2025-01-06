@@ -1,9 +1,9 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b2765607-7916-4718-8256-dd708283b45e/deploy-status)](https://app.netlify.com/sites/payload-st-project/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0cb12b3e-82f0-4256-bf37-c5b8ec732980/deploy-status)](https://app.netlify.com/sites/sss-website-project/deploys)
 
-# The [XXXXX] Project
+# Superior Software Solutions Website Project
 
-Welcome to the repository for The [XXXXX] project. This repository houses the codebase for the dynamic and interactive website, showcasing our
-commitment to excellence in web development.
+Welcome to the repository for Superior Software Solutions official website. This repository houses the codebase for the dynamic and interactive
+website, showcasing our commitment to excellence in web development.
 
 ## Table of Contents
 
@@ -28,8 +28,8 @@ delivering top-notch web solutions.
 
 ## Tech Stack
 
-- **Frontend:** Next.js version 15, TypeScript, Tailwind CSS and Shadcn UI.
-- **Backend:** Payload CMS, MongoDB and UploadThing Digital Asset Management.
+- **Frontend:** Next.js version 15, TypeScript, Tailwind CSS and Shadcn UI
+- **Backend:** Payload CMS version 3.0
 - **Deployment:** Vercel
 
 ## Getting Started
@@ -40,10 +40,10 @@ delivering top-notch web solutions.
 
 ## Contributing
 
-We will eventually welcome contributions.
+We will eventually welcome contributions!.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is not licensed.
 
-Thank you for being a part of The [XXXXX] website project... 🚀✨
+Thank you for being a part of the Superior Software Solutions website project! 🚀✨
