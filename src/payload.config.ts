@@ -16,8 +16,6 @@ import { plugins } from "@/payload/plugins/schema";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
-const databaseURI = process.env.NODE_ENV === "development" ? process.env.DATABASE_URI_DEV! : process.env.DATABASE_URI_PRD!;
-const payloadSecret = process.env.PAYLOAD_SECRET!;
 
 export default buildConfig({
 	admin: {
@@ -25,17 +23,17 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 		meta: {
-			titleSuffix: " | Payload",
+			titleSuffix: " | Superior Software Solutions",
 		},
 		user: Users.slug,
 	},
 	collections: [Media, Users],
-	db: mongooseAdapter({ url: databaseURI }),
+	db: mongooseAdapter({ url: process.env.DATABASE_URI! }),
 	editor: lexical,
 	email: resend,
 	globals: [],
 	plugins: [...plugins],
-	secret: payloadSecret,
+	secret: process.env.PAYLOAD_SECRET!,
 	sharp,
 	typescript: {
 		autoGenerate: true,
