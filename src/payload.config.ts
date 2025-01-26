@@ -6,13 +6,15 @@ import { buildConfig } from "payload";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { Media } from "@/payload/collections/media/schema";
+import { collections } from "@/payload/collections";
 import { Users } from "@/payload/collections/users/schema";
 
 import { lexical } from "@/payload/fields/lexical/schema";
 import { resend } from "@/payload/fields/resend/schema";
 
 import { plugins } from "@/payload/plugins/schema";
+
+import { env } from "@/lib/env";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -27,13 +29,13 @@ export default buildConfig({
 		},
 		user: Users.slug,
 	},
-	collections: [Media, Users],
-	db: mongooseAdapter({ url: process.env.DATABASE_URI! }),
+	collections: collections,
+	db: mongooseAdapter({ url: env.DATABASE_URI }),
 	editor: lexical,
 	email: resend,
 	globals: [],
 	plugins: [...plugins],
-	secret: process.env.PAYLOAD_SECRET!,
+	secret: env.PAYLOAD_SECRET,
 	sharp,
 	typescript: {
 		autoGenerate: true,
