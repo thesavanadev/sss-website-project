@@ -68,6 +68,17 @@ export interface UserAuthOperations {
 export interface Category {
   id: string;
   title: string;
+  site: string | Site;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sites".
+ */
+export interface Site {
+  id: string;
+  title: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -174,16 +185,6 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "sites".
- */
-export interface Site {
-  id: string;
-  title: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -277,6 +278,7 @@ export interface PayloadMigration {
  */
 export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
+  site?: T;
   updatedAt?: T;
   createdAt?: T;
 }

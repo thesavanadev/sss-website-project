@@ -26,5 +26,18 @@ export const Categories: CollectionConfig = {
 			type: "text",
 			required: true,
 		},
+		{
+			name: "site",
+			type: "relationship",
+			relationTo: "sites",
+			required: true,
+			// if user is not admin, set the site by default to the first site
+			// that they have access to.
+			defaultValue: ({ user }: { user: { roles: string[]; sites?: string[] } }) => {
+				if (!user.roles.includes("admin") && user.sites?.[0]) {
+					return user.sites[0];
+				}
+			},
+		},
 	],
 };
