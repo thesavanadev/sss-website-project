@@ -180,7 +180,7 @@ export interface User {
   lastName: string;
   bio?: string | null;
   roles: ('admin' | 'editor')[];
-  sites?: (string | Site)[] | null;
+  sites: (string | Site)[];
   profileImage?: (string | null) | Media;
   fullName?: string | null;
   updatedAt: string;

@@ -101,9 +101,6 @@ export const Users: CollectionConfig = {
 				create: isAdminFieldLevel,
 				update: isAdminFieldLevel,
 			},
-			admin: {
-				condition: ({ roles }) => roles && !roles.includes("admin"),
-			},
 			required: true,
 		},
 		{
