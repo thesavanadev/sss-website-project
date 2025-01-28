@@ -53,6 +53,7 @@ export const Users: CollectionConfig = {
 			admin: {
 				position: "sidebar",
 				readOnly: true,
+				hidden: true,
 			},
 			hooks: {
 				beforeValidate: [populateFullName],
