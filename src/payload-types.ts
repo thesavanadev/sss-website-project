@@ -11,6 +11,7 @@ export interface Config {
     users: UserAuthOperations;
   };
   collections: {
+    sites: Site;
     media: Media;
     users: User;
     'payload-locked-documents': PayloadLockedDocument;
@@ -19,6 +20,7 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
+    sites: SitesSelect<false> | SitesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -59,6 +61,16 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sites".
+ */
+export interface Site {
+  id: string;
+  title: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
@@ -79,6 +91,7 @@ export interface Media {
     };
     [k: string]: unknown;
   } | null;
+  site: string | Site;
   _key?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -165,6 +178,10 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
+  bio?: string | null;
+  roles: ('admin' | 'editor')[];
+  sites?: (string | Site)[] | null;
+  profileImage?: (string | null) | Media;
   fullName?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -184,6 +201,10 @@ export interface User {
 export interface PayloadLockedDocument {
   id: string;
   document?:
+    | ({
+        relationTo: 'sites';
+        value: string | Site;
+      } | null)
     | ({
         relationTo: 'media';
         value: string | Media;
@@ -236,11 +257,21 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sites_select".
+ */
+export interface SitesSelect<T extends boolean = true> {
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   caption?: T;
+  site?: T;
   _key?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -342,6 +373,10 @@ export interface MediaSelect<T extends boolean = true> {
 export interface UsersSelect<T extends boolean = true> {
   firstName?: T;
   lastName?: T;
+  bio?: T;
+  roles?: T;
+  sites?: T;
+  profileImage?: T;
   fullName?: T;
   updatedAt?: T;
   createdAt?: T;
