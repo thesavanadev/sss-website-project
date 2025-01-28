@@ -1,7 +1,8 @@
 import { FixedToolbarFeature, InlineToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
-import { anyone } from "@/payload/access/anyone";
-import { authenticated } from "@/payload/access/authenticated";
+import { isAdminOrHasSiteAccess } from "@/payload/access/is-admin-or-has-site-access";
+import { isAuthenticated } from "@/payload/access/is-authenticated";
+import { isPublic } from "@/payload/access/is-public";
 
 import type { CollectionConfig } from "payload";
 
@@ -12,14 +13,18 @@ export const Media: CollectionConfig = {
 		plural: "Media",
 	},
 	admin: {
-		defaultColumns: ["filename", "mimeType", "alt", "caption"],
-		useAsTitle: "alt",
+		defaultColumns: ["filename", "alt", "mimeType", "caption", "site"],
+		useAsTitle: "filename",
 	},
 	access: {
-		create: authenticated,
-		delete: authenticated,
-		read: anyone,
-		update: authenticated,
+		// authenticated users can create
+		create: isAuthenticated,
+		// anyone can read
+		read: isPublic,
+		// authenticated users can update
+		update: isAuthenticated,
+		// authenticated users can delete
+		delete: isAuthenticated,
 	},
 	fields: [
 		{
@@ -35,6 +40,19 @@ export const Media: CollectionConfig = {
 					return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()];
 				},
 			}),
+		},
+		{
+			name: "site",
+			type: "relationship",
+			relationTo: "sites",
+			required: true,
+			// if user is not admin, set the site by default
+			// to the first site that they have access to
+			defaultValue: ({ user }: { user: { roles: string[]; sites?: string[] } }) => {
+				if (!user.roles.includes("admin") && user.sites?.[0]) {
+					return user.sites[0];
+				}
+			},
 		},
 	],
 	upload: {
