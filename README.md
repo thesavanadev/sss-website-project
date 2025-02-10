@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0cb12b3e-82f0-4256-bf37-c5b8ec732980/deploy-status)](https://app.netlify.com/sites/sss-website-project/deploys)
-
 # Superior Software Solutions Website Project
 
 Welcome to the repository for Superior Software Solutions official website. This repository houses the codebase for the dynamic and interactive

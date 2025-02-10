@@ -3,6 +3,9 @@ import { Comfortaa as FontHeader, Montserrat as FontBody } from "next/font/googl
 
 import { cn } from "@/lib/utils";
 
+import { Header } from "@/payload/blocks/globals/header/component";
+import { Footer } from "@/payload/blocks/globals/footer/component";
+
 import { ThemeProvider } from "@/components/theme-provider";
 
 import "@/frontend/globals.css";
@@ -19,11 +22,15 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
 
 			<body className={cn("flex h-screen flex-col", fontHeader.variable, fontBody.variable)}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-					<header>Header Goes Here</header>
+					<header>
+						<Header />
+					</header>
 
 					<main>{children}</main>
 
-					<footer className="mt-auto">Footer Goes Here</footer>
+					<footer className="mt-auto">
+						<Footer />
+					</footer>
 				</ThemeProvider>
 			</body>
 		</html>

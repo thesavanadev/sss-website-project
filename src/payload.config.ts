@@ -8,9 +8,10 @@ import { fileURLToPath } from "url";
 
 import { collections } from "@/payload/collections";
 import { Users } from "@/payload/collections/users/schema";
+import { globals } from "@/payload/blocks/globals";
 
-import { lexical } from "@/payload/fields/lexical/schema";
-import { resend } from "@/payload/fields/resend/schema";
+import { lexical } from "@/payload/fields/lexical";
+import { resend } from "@/payload/fields/resend";
 
 import { plugins } from "@/payload/plugins/schema";
 
@@ -33,7 +34,7 @@ export default buildConfig({
 	db: mongooseAdapter({ url: env.DATABASE_URI }),
 	editor: lexical,
 	email: resend,
-	globals: [],
+	globals: globals,
 	plugins: [...plugins],
 	secret: env.PAYLOAD_SECRET,
 	sharp,

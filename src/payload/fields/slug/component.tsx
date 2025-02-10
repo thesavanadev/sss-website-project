@@ -8,7 +8,7 @@ import { useField, Button, TextInput, FieldLabel, useFormFields, useForm } from 
 
 import { formatSlug } from "@/payload/fields/slug/hooks/format-slug";
 
-import "@/payload/fields/slug/schema.scss";
+import "@/payload/fields/slug/index.scss";
 
 type SlugComponentProps = {
 	fieldToUse: string;
