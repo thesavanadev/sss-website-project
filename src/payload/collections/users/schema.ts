@@ -101,7 +101,9 @@ export const Users: CollectionConfig = {
 				create: isAdminFieldLevel,
 				update: isAdminFieldLevel,
 			},
-			required: true,
+			admin: {
+				condition: ({ roles }) => roles && !roles.includes("admin"),
+			},
 		},
 		{
 			name: "profileImage",

@@ -27,7 +27,7 @@ delivering top-notch web solutions.
 ## Tech Stack
 
 - **Frontend:** Next.js version 15, TypeScript, Tailwind CSS and Shadcn UI
-- **Backend:** Payload CMS version 3.0
+- **Backend:** Payload CMS version 3.0, Turso DB
 - **Deployment:** Vercel
 
 ## Getting Started

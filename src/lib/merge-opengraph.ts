@@ -8,7 +8,7 @@ const defaultOpenGraph: Metadata["openGraph"] = {
 		"Superior Software Solutions: Custom software development and technology consulting to drive efficiency, growth, and innovation for your business.",
 	images: [
 		{
-			url: `${getServerSideURL()}/website-template-OG.webp`,
+			url: `${getServerSideURL()}/sss-og.jpg`,
 		},
 	],
 	siteName: "Superior Software Solutions",
