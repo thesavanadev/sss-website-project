@@ -7,7 +7,7 @@ import type { Media, Page, Post, Config } from "@/payload-types";
 const getImageURL = (image?: Media | Config["db"]["defaultIDType"] | null) => {
 	const serverUrl = getServerSideURL();
 
-	let url = serverUrl + "/website-template-OG.webp";
+	let url = serverUrl + "/sss-og.jpg";
 
 	if (image && typeof image === "object" && "url" in image) {
 		const ogUrl = image.sizes?.og?.url;
@@ -23,7 +23,7 @@ export const generateMeta = async (args: { doc: Partial<Page> | Partial<Post> | 
 
 	const ogImage = getImageURL(doc?.meta?.image);
 
-	const title = doc?.meta?.title ? doc?.meta?.title + " | Payload Website Template" : "Payload Website Template";
+	const title = doc?.meta?.title ? doc?.meta?.title + " | Superior Software Solutions" : "Superior Software Solutions";
 
 	return {
 		description: doc?.meta?.description,
