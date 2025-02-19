@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { Comfortaa as FontHeader, Montserrat as FontBody } from "next/font/google";
-import { draftMode } from "next/headers";
 
 import { cn } from "@/lib/utils";
 import { mergeOpenGraph } from "@/lib/merge-opengraph";
@@ -20,8 +19,6 @@ const fontHeader = FontHeader({ subsets: ["latin"], variable: "--font-header" })
 const fontBody = FontBody({ subsets: ["latin"], variable: "--font-body" });
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
-	const { isEnabled } = await draftMode();
-
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head>

@@ -3,7 +3,7 @@ import { env } from "@/lib/env";
 import canUseDOM from "@/lib/can-use-dom";
 
 export const getServerSideURL = () => {
-	let url = env.NEXT_PUBLIC_SERVER_URL;
+	const url = env.NEXT_PUBLIC_SERVER_URL;
 
 	return url;
 };
